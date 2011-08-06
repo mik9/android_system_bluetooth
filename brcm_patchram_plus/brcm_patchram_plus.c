@@ -47,7 +47,7 @@
 **                 function inside the file 
 **                 system/bluetooth/bluedroid/bluetooth.c.
 **
-**                 If the Android system property "ro.bt.bcm_bdaddr_path" is
+**                 If the Android system property "ro.bt.bdaddr_path" is
 **                 set, then the bd_addr will be read from this path.
 **                 This is overridden by --bd_addr on the command line.
 **  
@@ -779,11 +779,9 @@ read_default_bdaddr()
 /* End of TAG */
 	char bdaddr[18];
 
-#if 0	// Might be reenabled if we can use it
 	property_get("ro.bt.bdaddr_path", path, "");
 	if (path[0] == 0)
 		return;
-#endif
 
 	fd = open(path, O_RDONLY);
 	if (fd < 0) {
